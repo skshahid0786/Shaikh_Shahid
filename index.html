@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Kombat</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-        }
-        .header {
-            background-color: #2c2c2e;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 20px;
-        }
-        .main {
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
-        .main img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: white;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2c2c2e;
-        }
-        .footer p {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 24px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SK Shahid — Portfolio</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffe7;
+      text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+      margin-bottom: 40px;
+    }
+
+    .project {
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #1a1a1a;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 8px #00ffe7;
+    }
+
+    .project:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #00ffe7;
+    }
+
+    .project-title {
+      font-size: 1.5em;
+      color: #00ffe7;
+      text-shadow: 0 0 8px #00ffe7;
+    }
+
+    .url {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 1em;
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #00ffe7;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .url:hover {
+      background-color: #00bba6;
+    }
+
+    .desc {
+      margin-top: 10px;
+      color: #e0e0e0;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Hamster Kombat</h1>
-    </div>
+  <h1>🌟 SK Shahid — My Project Portfolio 🌟</h1>
 
-    <div class="main">
-        <img id="hamsterImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe5CKGUoPsXP-lM5xo811hAOkRKmLYKOPV9A&s" alt="Hamster Kombat">
-        <div class="loading">Click Me...</div>
-        <div id="clickCount">Clicks: 0</div>
-    </div>
+  <div class="project">
+    <div class="project-title">🌿 EcoFoliage</div>
+    <a class="url" href="https://skshahid0786.github.io/ecofoliage/" target="_blank">Visit EcoFoliage</a>
+    <div class="desc">A clean, green-themed site promoting sustainability and nature through elegant design.</div>
+  </div>
 
-    <div class="footer">
-        <p>Hamster Kombat Token will be launched on TON</p>
-        <p>Stay tuned</p>
-        <p>More info in official channels</p>
-        <div class="social-icons">
-            <a href="#"><img src="https://img.icons8.com/fluent/48/000000/telegram-app.png" alt="Telegram"></a>
-            <a href="#"><img src="https://img.icons8.com/fluent/48/000000/youtube-play.png" alt="YouTube"></a>
-            <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter"></a>
-        </div>
-    </div>
+  <div class="project">
+    <div class="project-title">🖼 GalleryGaze</div>
+    <a class="url" href="https://skshahid0786.github.io/GalleryGaze/" target="_blank">Visit GalleryGaze</a>
+    <div class="desc">A modern, responsive gallery for showcasing art and photography beautifully.</div>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const image = document.getElementById('hamsterImage');
-            const clickCountDisplay = document.getElementById('clickCount');
-            const userKey = 'userHamsterClicks';
-            
-            // Load the user's click count from localStorage
-            let userClicks = parseInt(localStorage.getItem(userKey)) || 0;
-            clickCountDisplay.textContent = `Clicks: ${userClicks}`;
-            
-            // Increment the click count on image click
-            image.addEventListener('click', () => {
-                userClicks += 1;
-                localStorage.setItem(userKey, userClicks);
-                clickCountDisplay.textContent = `Clicks: ${userClicks}`;
-            });
-        });
-    </script>
+  <div class="project">
+    <div class="project-title">🐾 Aiko – Your Virtual Pet</div>
+    <a class="url" href="https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/" target="_blank">Visit Aiko</a>
+    <div class="desc">A fun and interactive virtual pet you can feed, play with, and take care of in-browser.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">🤖 VexoraAI</div>
+    <a class="url" href="http://www.vexoraai.run.place/" target="_blank">Visit VexoraAI</a>
+    <div class="desc">A smart AI chatbot interface with a sleek UI and responsive design for smart conversations.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">💫 SoulConnect</div>
+    <a class="url" href="https://soulconnect.linkpc.net/" target="_blank">Visit SoulConnect</a>
+    <div class="desc">A mood-based platform offering a calm, reflective space to explore emotions and thoughts.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">🎌 AnimeFlareBox</div>
+    <a class="url" href="https://animeflarebox.linkpc.net/" target="_blank">Visit AnimeFlareBox</a>
+    <div class="desc">A beautifully organized collection of anime images and themes for fans and otakus.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">💬 Chatter</div>
+    <a class="url" href="https://skshahid0786.github.io/Chatter/" target="_blank">Visit Chatter</a>
+    <div class="desc">A real-time secure chat platform where users can message, share media, and play games.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">📚 Sanket Study Centre</div>
+    <a class="url" href="https://skshahid0786.github.io/SanketStudyCentre/" target="_blank">Visit Study Centre</a>
+    <div class="desc">An educational hub for students offering study material, teacher support, and weekly tests.</div>
+  </div>
 
 </body>
 </html>
