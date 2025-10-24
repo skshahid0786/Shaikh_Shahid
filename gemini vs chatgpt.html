@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Shahid | Expert Front-end Developer & UI/UX Designer</title>
+    <meta property="og:title" content="SK Shahid | Front-end Developer Portfolio">
+    <meta property="og:description" content="A portfolio showcasing professional, production-ready web development projects by SK Shahid.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-portfolio-url.com"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SK Shahid | Developer Portfolio">
+    <meta name="twitter:description" content="Showcasing modern web projects with a focus on clean design and performance.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "SK Shahid",
+      "jobTitle": "Front-end Developer & UI/UX Designer",
+      "url": "https://your-portfolio-url.com",
+      "sameAs": [
+        "https://github.com/skshahid0786",
+        "https://linkedin.com/in/sk-shahid-example" // Update this link
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --color-primary: #00ffe7; /* Bright Cyan/Teal Accent */
+            --color-secondary: #008f82; /* Muted Cyan */
+            --color-background-dark: #121212;
+            --color-background-card: #1e1e1e;
+            --color-text-light: #f5f5f5;
+            --color-text-muted: #aaaaaa;
+            --font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --transition-speed: 0.3s;
+            --border-radius: 12px;
+            --box-shadow-glow: 0 0 15px rgba(0, 255, 231, 0.4);
+            --glass-blur: blur(10px);
+        }
+
+        /* Light Theme Toggle (Accessible) */
+        [data-theme="light"] {
+            --color-primary: #009688; /* Darker Teal for contrast */
+            --color-secondary: #004d40;
+            --color-background-dark: #f0f0f0;
+            --color-background-card: #ffffff;
+            --color-text-light: #121212;
+            --color-text-muted: #555555;
+            --box-shadow-glow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-primary);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-text-light);
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-speed), opacity var(--transition-speed);
+        }
+
+        a:hover, a:focus {
+            color: var(--color-primary);
+            opacity: 0.8;
+            outline: none; /* Focus handled by specific elements */
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header and Navigation */
+        .main-header {
+            background-color: var(--color-background-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item a {
+            padding: 10px 15px;
+            margin-left: 10px;
+            font-weight: 500;
+            color: var(--color-text-light);
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed);
+        }
+
+        .nav-item a:hover {
+            background-color: var(--color-background-card);
+        }
+        
+        .nav-item a:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 80vh;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-background-dark) 0%, #1a1a1a 100%);
+        }
+
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--color-background-card);
+            border: 4px solid var(--color-primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Placeholder SVG Icon (Data-URI) */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ffe7"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--color-text-muted);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: var(--color-primary);
+            color: var(--color-background-dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(0, 255, 231, 0.6);
+            transition: all var(--transition-speed);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            background-color: #ffffff;
+            box-shadow: var(--box-shadow-glow);
+            transform: translateY(-2px);
+            outline: 2px solid var(--color-primary);
+            outline-offset: 4px;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background-color: var(--color-background-card);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 231, 0.1);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* For fade-in animation */
+            transform: translateY(20px); /* For slide-up animation */
+            animation: fadeInSlideUp 0.6s ease-out forwards;
+        }
+        
+        /* Subtle animation delay for project cards */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-glow);
+        }
+        
+        .project-card a {
+             display: block;
+             margin-top: 10px;
+             word-break: break-all;
+             font-size: 0.9em;
+             color: var(--color-secondary);
+        }
+
+        .project-card a:focus {
+             outline: 2px dashed var(--color-primary);
+             outline-offset: 4px;
+        }
+
+        /* Glassmorphism Effect for project cards (subtle) */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 255, 231, 0.03);
+            z-index: -1;
+            filter: var(--glass-blur);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        /* About and Contact Sections */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 5px auto 0;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-secondary);
+            background-color: var(--color-background-card);
+            color: var(--color-text-light);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 8px rgba(0, 255, 231, 0.5);
+            outline: none;
+        }
+        
+        .contact-form .cta-button {
+            width: 100%;
+        }
+
+        /* Footer */
+        .main-footer {
+            margin-top: auto;
+            padding: 30px 0;
+            background-color: var(--color-background-card);
+            border-top: 1px solid rgba(0, 255, 231, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        
+        /* Light/Dark Toggle */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .theme-switch input {
+            display: none;
+        }
+        
+        .slider {
+            cursor: pointer;
+            width: 50px;
+            height: 26px;
+            background-color: var(--color-secondary);
+            transition: var(--transition-speed);
+            border-radius: 26px;
+            position: relative;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--color-text-light);
+            transition: var(--transition-speed);
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--color-primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        
+        /* Visually Hidden Text for Accessibility */
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          padding: 0;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Print Stylesheet (Resume View) */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                font-family: serif;
+                padding: 0;
+            }
+            
+            /* Hide non-essential elements for printing */
+            .main-header, .hero-section, .theme-switch-wrapper, .main-footer, .cta-button {
+                display: none !important;
+            }
+            
+            .container {
+                max-width: none;
+                padding: 0 40px;
+            }
+
+            .section-padding {
+                padding: 20px 0;
+                page-break-after: always;
+            }
+            
+            .section-header {
+                text-align: left;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #000000;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-header h2::after {
+                display: none;
+            }
+            
+            /* Print-friendly project list */
+            #projects {
+                page-break-before: always;
+            }
+            
+            .project-grid {
+                display: block;
+                gap: 0;
+                margin-top: 0;
+            }
+
+            .project-card {
+                border: 1px solid #cccccc;
+                padding: 15px;
+                margin-bottom: 10px;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                animation: none;
+                break-inside: avoid;
+            }
+            
+            .project-card h3 {
+                color: #000000;
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+            }
+            
+            .project-card p {
+                font-size: 0.95rem;
+                color: #555555;
+            }
+            
+            .project-card a {
+                color: #0000ff;
+                font-size: 0.9rem;
+            }
+            
+            .about-content, .contact-info {
+                max-width: none;
+                text-align: left;
+                font-size: 1rem;
+                color: #000000;
+            }
+
+            .contact-info {
+                margin-top: 20px;
+            }
+            
+            .contact-info p {
+                margin: 5px 0;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none; /* Simple mobile hide, can be improved with a hamburger menu if necessary */
+            }
+            
+            .nav-content {
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .theme-switch-wrapper {
+                 position: absolute;
+                 top: 20px;
+                 right: 20px;
+                 margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header class="main-header" role="banner">
+        <div class="container nav-content">
+            <a href="#hero" class="logo">SK Shahid</a>
+            <nav role="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label for="theme-toggle" class="visually-hidden">Toggle Dark/Light Theme</label>
+                <label class="theme-switch" role="switch" aria-checked="true" aria-label="Dark theme active">
+                    <input type="checkbox" id="theme-toggle" aria-labelledby="theme-toggle-label">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="avatar-placeholder" role="img" aria-label="Profile Avatar Placeholder"></div>
+            <h1 class="hero-title">SK Shahid</h1>
+            <p class="hero-tagline">Expert Front-end Developer & UI/UX Designer | Building the Future, One Component at a Time.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </section>
+
+        <section id="projects" class="section-padding">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Projects</h2>
+                </header>
+                <div class="project-grid">
+                    
+                    <article class="project-card">
+                        <h3>EcoFoliage</h3>
+                        <p>A clean, green-themed site promoting sustainability and nature through elegant design.</p>
+                        <a href="https://skshahid0786.github.io/ecofoliage/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/ecofoliage/</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>GalleryGaze</h3>
+                        <p>A modern, responsive gallery for showcasing art and photography beautifully.</p>
+                        <a href="https://skshahid0786.github.io/GalleryGaze/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/GalleryGaze/</a>
+                    </article>
+                    
+                    <article class="project-card">
+                        <h3>Aiko – Your Virtual Pet</h3>
+                        <p>A fun and interactive virtual pet you can feed, play with, and take care of in-browser.</p>
+                        <a href="https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/</a>
+                    </article>
+                    
+                    <article class="project-card">
+                        <h3>VexoraAI</h3>
+                        <p>A smart AI chatbot interface with a sleek UI and responsive design for intelligent conversations.</p>
+                        <a href="http://www.vexoraai.run.place/" target="_blank" rel="noopener noreferrer">http://www.vexoraai.run.place/</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>SoulConnect</h3>
+                        <p>A mood-based platform offering a calm, reflective space to explore emotions and thoughts.</p>
+                        <a href="https://soulconnect.linkpc.net/" target="_blank" rel="noopener noreferrer">https://soulconnect.linkpc.net/</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>AnimeFlareBox</h3>
+                        <p>A beautifully organized collection of anime images and themes for fans and otakus.</p>
+                        <a href="https://animeflarebox.linkpc.net/" target="_blank" rel="noopener noreferrer">https://animeflarebox.linkpc.net/</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Chatter</h3>
+                        <p>A real-time secure chat platform where users can message, share media, and play games.</p>
+                        <a href="https://skshahid0786.github.io/Chatter/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/Chatter/</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Sanket Study Centre</h3>
+                        <p>An educational hub for students offering study material, teacher support, and weekly tests.</p>
+                        <a href="https://skshahid0786.github.io/SanketStudyCentre/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/SanketStudyCentre/</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <header class="section-header">
+                    <h2>About Me</h2>
+                </header>
+                <div class="about-content">
+                    <p>I am SK Shahid, an expert front-end developer and UI/UX designer with a passion for creating modern, professional, and performance-optimized web experiences. My work focuses on the intersection of aesthetic design and technical excellence, ensuring every project is responsive, accessible, and ready for production.</p>
+                    <p>I specialize in semantic HTML, modern CSS (including SASS/LESS principles and variable use), and efficient JavaScript, always adhering to a mobile-first philosophy. I strive to deliver clean, maintainable code that provides a superior user experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Contact</h2>
+                </header>
+                <form class="contact-form" action="#" method="POST">
+                    <label for="name" class="visually-hidden">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                    <label for="email" class="visually-hidden">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                    <label for="message" class="visually-hidden">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="current-year"></span> SK Shahid. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:sk.shahid@example.com" target="_blank" rel="noopener noreferrer">sk.shahid@example.com</a></p>
+            </div>
+            <div class="footer-links">
+                <a href="#" id="download-resume">Download Dummy Resume (PDF)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JS for Theme Toggle, Smooth Scrolling, and Footer Year
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const resumeLink = document.getElementById('download-resume');
+            const navLinks = document.querySelectorAll('.nav-list a, .cta-button');
+
+            // --- Theme Logic ---
+
+            // Check for saved theme in localStorage or prefer dark mode
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                body.setAttribute('data-theme', savedTheme);
+                themeToggle.checked = savedTheme === 'light'; // Checkbox is 'checked' for light mode
+                document.querySelector('.theme-switch').setAttribute('aria-checked', savedTheme === 'dark' ? 'false' : 'true');
+                document.querySelector('.theme-switch').setAttribute('aria-label', savedTheme === 'dark' ? 'Dark theme active' : 'Light theme active');
+            } else if (prefersDark) {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.checked = false;
+                document.querySelector('.theme-switch').setAttribute('aria-checked', 'true');
+            } else {
+                body.setAttribute('data-theme', 'dark'); // Default to dark if no preference/storage
+                themeToggle.checked = false;
+                document.querySelector('.theme-switch').setAttribute('aria-checked', 'true');
+            }
+            
+            // Set 'aria-checked' status on initial load
+            themeToggle.closest('.theme-switch').setAttribute('aria-checked', body.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+            
+            // Event listener for toggle
+            themeToggle.addEventListener('change', function() {
+                const newTheme = this.checked ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                this.closest('.theme-switch').setAttribute('aria-checked', newTheme === 'dark' ? 'true' : 'false');
+                this.closest('.theme-switch').setAttribute('aria-label', newTheme === 'dark' ? 'Dark theme active' : 'Light theme active');
+            });
+
+
+            // --- Smooth Scrolling ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // --- Footer Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Dummy Resume Download Link (Blob/Data URI) ---
+            resumeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Content for the dummy resume (simple text)
+                const resumeContent = `SK Shahid - Professional Summary\n\nExpert Front-end Developer and UI/UX Designer\n\nContact: sk.shahid@example.com\n\nProjects:\n1. EcoFoliage: Sustainability site.\n2. GalleryGaze: Modern photo gallery.\n3. Aiko – Your Virtual Pet: Interactive in-browser pet.\n4. VexoraAI: Sleek AI chatbot interface.\n5. SoulConnect: Mood-based reflection platform.\n6. AnimeFlareBox: Organized anime image collection.\n7. Chatter: Real-time secure chat platform.\n8. Sanket Study Centre: Educational hub.`;
+                
+                // Create a Blob from the content
+                const blob = new Blob([resumeContent], { type: 'text/plain' });
+                
+                // Create a temporary URL for the Blob
+                const url = URL.createObjectURL(blob);
+                
+                // Create a temporary link element
+                const tempLink = document.createElement('a');
+                tempLink.href = url;
+                tempLink.download = 'SK_Shahid_Resume_Dummy.txt'; // Set filename
+                
+                // Programmatically click the link to start download
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                
+                // Clean up the temporary link and revoke the object URL
+                document.body.removeChild(tempLink);
+                URL.revokeObjectURL(url);
+            });
+        });
+    </script>
+</body>
+</html>
