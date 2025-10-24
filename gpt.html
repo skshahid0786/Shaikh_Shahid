@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SK Shahid — Portfolio</title>
+
+  <!-- Open Graph & Twitter Card -->
+  <meta property="og:title" content="SK Shahid — Portfolio">
+  <meta property="og:description" content="Professional portfolio — projects, about, contact. Dark modern theme with teal accents.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23011112'/%3E%3Ctext x='50%25' y='50%25' font-family='system-ui,Segoe UI,Roboto,Helvetica,Arial' font-size='36' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'%3ESK%20Shahid%20Portfolio%3C/text%3E%3C/svg%3E">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SK Shahid — Portfolio">
+  <meta name="twitter:description" content="Professional portfolio — projects, about, contact.">
+  <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23011112'/%3E%3Ctext x='50%25' y='50%25' font-family='system-ui,Segoe UI,Roboto,Helvetica,Arial' font-size='36' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'%3ESK%20Shahid%20Portfolio%3C/text%3E%3C/svg%3E">
+
+  <!-- Basic SEO -->
+  <meta name="description" content="SK Shahid — front-end portfolio showcasing projects like EcoFoliage, GalleryGaze, Aiko, VexoraAI and more.">
+  <link rel="canonical" href="https://skshahid0786.github.io/">
+
+  <!-- JSON-LD structured data (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "SK Shahid",
+    "url": "https://skshahid0786.github.io/",
+    "jobTitle": "Front-End Developer & UI/UX Designer",
+    "sameAs": [
+      "https://skshahid0786.github.io/",
+      "https://skshahid0786.github.io/Chatter/"
+    ]
+  }
+  </script>
+
+  <!-- Theme variables; dark-first, teal accent -->
+  <style>
+    /* CSS variables for theming */
+    :root{
+      --bg:#071016;
+      --card:#0b161a;
+      --muted:#9aa6ad;
+      --text:#e7f6f5;
+      --accent:#00ffe7;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      --max-width:1100px;
+      --focus: 0 0 0 3px rgba(0,255,231,0.12);
+      --nav-height:68px;
+      --transition: 260ms cubic-bezier(.2,.9,.3,1);
+      --print-bg: #fff;
+    }
+
+    /* Light theme overrides */
+    :root[data-theme="light"]{
+      --bg:#f6fbfb;
+      --card:#ffffff;
+      --muted:#3a4a4b;
+      --text:#071016;
+      --glass: rgba(2,6,8,0.03);
+      --glass-2: rgba(2,6,8,0.02);
+    }
+
+    /* Basic reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#031215 160%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color:transparent;
+      padding-bottom:60px;
+    }
+
+    /* Layout container */
+    .wrap{
+      max-width:var(--max-width);
+      margin:24px auto;
+      padding:20px;
+      display:grid;
+      gap:22px;
+    }
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:12px;
+      z-index:30;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      backdrop-filter: blur(6px);
+      border-radius:calc(var(--radius) - 4px);
+      padding:10px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-left:6px;
+    }
+    .avatar{
+      width:52px;height:52px;border-radius:12px;flex:0 0 52px;
+      background:linear-gradient(135deg,var(--glass),var(--glass-2));
+      display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .avatar svg{width:44px;height:44px;display:block}
+
+    .title{
+      line-height:1;
+      display:flex;flex-direction:column;
+    }
+    .title .name{font-weight:700;letter-spacing:0.2px}
+    .title .tag{font-size:13px;color:var(--muted);margin-top:4px}
+
+    nav{
+      margin-left:auto;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .nav-link{
+      background:transparent;border:0;color:var(--text);padding:8px 12px;border-radius:10px;
+      text-decoration:none;font-weight:600;font-size:14px;
+    }
+    .nav-link:hover{transform:translateY(-2px)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),#00f2d8);
+      color:#021414;font-weight:700;padding:8px 12px;border-radius:10px;border:0;
+      cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+      box-shadow:0 6px 20px rgba(0,255,231,0.06);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+      padding:22px;border-radius:calc(var(--radius));background:linear-gradient(180deg,var(--card),rgba(4,12,14,0.8));
+      box-shadow:0 10px 30px rgba(2,8,10,0.6);border:1px solid rgba(255,255,255,0.02);
+    }
+    .hero-left h1{font-size:clamp(20px,4vw,34px);margin:0}
+    .hero-left p{margin:8px 0 0;color:var(--muted)}
+    .hero-right{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center}
+    .small-meta{font-size:13px;color:var(--muted)}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 8px 20px rgba(2,6,10,0.5);transition:transform var(--transition),box-shadow var(--transition);
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .card:focus-within, .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .thumb{
+      width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.02);
+      display:block;background:linear-gradient(90deg, rgba(0,255,231,0.04), rgba(0,255,231,0.01));
+      display:grid;place-items:center;
+    }
+    .project-title{font-weight:700;margin:0}
+    .project-desc{color:var(--muted);margin:0;font-size:14px}
+    .project-link{font-size:13px;color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* Glassy footer */
+    footer{
+      margin-top:8px;padding:18px;border-radius:12px;background:linear-gradient(180deg,transparent,var(--glass));
+      display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(255,255,255,0.02)
+    }
+    .contact{color:var(--muted);font-size:14px}
+
+    /* Utilities */
+    .controls{display:flex;gap:8px;align-items:center}
+    .icon-btn{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:10px;color:var(--text);
+      cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    }
+    .icon-btn:focus{outline:none;box-shadow:var(--focus)}
+
+    /* Focus states for accessibility */
+    a:focus,button:focus,input:focus,textarea:focus{box-shadow:var(--focus);outline:none}
+
+    /* Small screen adjustments */
+    @media (max-width:700px){
+      header{flex-direction:column;align-items:stretch;padding:12px}
+      nav{margin-left:0;justify-content:space-between}
+      .hero{grid-template-columns:1fr;gap:12px}
+    }
+
+    /* Subtle animations (CSS only) */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity 520ms var(--transition),transform 520ms var(--transition)}
+    .reveal.in{opacity:1;transform:none}
+
+    /* Print stylesheet (clean resume) */
+    @media print{
+      :root{color-scheme:light}
+      body{background:var(--print-bg);color:#000;margin:0}
+      header,nav,footer,.cta,.icon-btn{display:none}
+      .wrap{max-width:100%;padding:0}
+      .card{box-shadow:none;border:0;background:transparent;padding:0}
+      .projects{display:block}
+      img{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky header with nav -->
+  <header class="wrap" role="banner" aria-label="Primary header">
+    <div class="brand" aria-hidden="false">
+      <div class="avatar" aria-hidden="true">
+        <!-- Avatar placeholder SVG -->
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#00292b"/><stop offset="1" stop-color="#00ffe7"/></linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g)"/>
+          <g transform="translate(10,8)" fill="#071016">
+            <circle cx="22" cy="18" r="8"></circle>
+            <rect x="6" y="34" width="32" height="10" rx="4"></rect>
+          </g>
+        </svg>
+      </div>
+      <div class="title">
+        <span class="name">SK Shahid</span>
+        <span class="tag">Front-end Developer · UI/UX · Interactive Web</span>
+      </div>
+    </div>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <a class="nav-link" href="#projects" data-scroll>Projects</a>
+      <a class="nav-link" href="#about" data-scroll>About</a>
+      <a class="nav-link" href="#contact" data-scroll>Contact</a>
+      <div class="controls" style="margin-left:10px">
+        <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle light/dark" aria-label="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+          <span class="small-meta" style="display:none">Theme</span>
+        </button>
+        <button id="downloadResume" class="cta" aria-label="Download resume">Download Resume</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" role="main">
+    <!-- Hero section -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading">Hi, I'm <span style="color:var(--accent)">SK Shahid</span></h1>
+        <p class="small-meta">I build polished, accessible front-end experiences — interactive UIs, responsive sites & lightweight web apps.</p>
+        <p style="margin-top:12px">
+          <button class="cta" id="toProjects" aria-controls="projects">View Projects ↓</button>
+        </p>
+        <p class="small-meta" style="margin-top:12px">Available for freelance & collaboration — focused on performance and pixel-perfect UI.</p>
+      </div>
+      <div class="hero-right" aria-hidden="false">
+        <div style="width:220px;padding:12px;border-radius:12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.12));border:1px solid rgba(255,255,255,0.02)">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div aria-hidden="true" style="width:64px;height:64px;border-radius:10px;background:linear-gradient(180deg,var(--card),var(--glass));display:grid;place-items:center">
+              <!-- Tiny avatar / placeholder -->
+              <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="24" r="10" fill="#001617"/><rect x="14" y="38" width="36" height="14" rx="6" fill="#001617"/></svg>
+            </div>
+            <div style="flex:1">
+              <div style="font-weight:700">Front-end & UI/UX</div>
+              <div class="small-meta">HTML • CSS • JS • Accessibility</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px" class="small-meta">Tip: Use keyboard to tab through projects — focus states enabled.</div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" style="margin:6px 0 12px">Projects</h2>
+      <div class="projects" role="list">
+        <!-- Project 1 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p1-title">
+          <div class="thumb" aria-hidden="true">
+            <!-- inline SVG placeholder (data URI not necessary because inline) -->
+            <img alt="EcoFoliage thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>EcoFoliage</text></svg>">
+          </div>
+          <div>
+            <h3 id="p1-title" class="project-title">EcoFoliage</h3>
+            <p class="project-desc">A clean, green-themed site promoting sustainability and nature through elegant design.</p>
+            <a class="project-link" href="https://skshahid0786.github.io/ecofoliage/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/ecofoliage/</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p2-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="GalleryGaze thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>GalleryGaze</text></svg>">
+          </div>
+          <div>
+            <h3 id="p2-title" class="project-title">GalleryGaze</h3>
+            <p class="project-desc">A modern, responsive gallery for showcasing art and photography beautifully.</p>
+            <a class="project-link" href="https://skshahid0786.github.io/GalleryGaze/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/GalleryGaze/</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p3-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="Aiko thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>Aiko – Your Virtual Pet</text></svg>">
+          </div>
+          <div>
+            <h3 id="p3-title" class="project-title">Aiko – Your Virtual Pet</h3>
+            <p class="project-desc">A fun and interactive virtual pet you can feed, play with, and take care of in-browser.</p>
+            <a class="project-link" href="https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p4-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="VexoraAI thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>VexoraAI</text></svg>">
+          </div>
+          <div>
+            <h3 id="p4-title" class="project-title">VexoraAI</h3>
+            <p class="project-desc">A smart AI chatbot interface with a sleek UI and responsive design for intelligent conversations.</p>
+            <a class="project-link" href="http://www.vexoraai.run.place/" target="_blank" rel="noopener noreferrer">http://www.vexoraai.run.place/</a>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p5-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="SoulConnect thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>SoulConnect</text></svg>">
+          </div>
+          <div>
+            <h3 id="p5-title" class="project-title">SoulConnect</h3>
+            <p class="project-desc">A mood-based platform offering a calm, reflective space to explore emotions and thoughts.</p>
+            <a class="project-link" href="https://soulconnect.linkpc.net/" target="_blank" rel="noopener noreferrer">https://soulconnect.linkpc.net/</a>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p6-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="AnimeFlareBox thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>AnimeFlareBox</text></svg>">
+          </div>
+          <div>
+            <h3 id="p6-title" class="project-title">AnimeFlareBox</h3>
+            <p class="project-desc">A beautifully organized collection of anime images and themes for fans and otakus.</p>
+            <a class="project-link" href="https://animeflarebox.linkpc.net/" target="_blank" rel="noopener noreferrer">https://animeflarebox.linkpc.net/</a>
+          </div>
+        </article>
+
+        <!-- Project 7 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p7-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="Chatter thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='20' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>Chatter</text></svg>">
+          </div>
+          <div>
+            <h3 id="p7-title" class="project-title">Chatter</h3>
+            <p class="project-desc">A real-time secure chat platform where users can message, share media, and play games.</p>
+            <a class="project-link" href="https://skshahid0786.github.io/Chatter/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/Chatter/</a>
+          </div>
+        </article>
+
+      <!-- Project 8 -->
+        <article class="card reveal" role="listitem" tabindex="0" aria-labelledby="p8-title">
+          <div class="thumb" aria-hidden="true">
+            <img alt="Sanket Study Centre thumbnail" loading="lazy" width="640" height="360"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%2308140b'/><text x='50%25' y='50%25' font-family='system-ui' font-size='18' fill='%2300ffe7' text-anchor='middle' dominant-baseline='middle'>Sanket Study Centre</text></svg>">
+          </div>
+          <div>
+            <h3 id="p8-title" class="project-title">Sanket Study Centre</h3>
+            <p class="project-desc">An educational hub for students offering study material, teacher support, and weekly tests.</p>
+            <a class="project-link" href="https://skshahid0786.github.io/SanketStudyCentre/" target="_blank" rel="noopener noreferrer">https://skshahid0786.github.io/SanketStudyCentre/</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" aria-labelledby="about-heading" style="margin-top:14px">
+      <h2 id="about-heading">About</h2>
+      <div class="card reveal" tabindex="0">
+        <p class="project-desc" style="margin:0">
+          I'm a front-end developer focused on building performant, accessible user interfaces. I prefer lightweight code, clear UX, and clean visuals — my work emphasizes responsiveness, keyboard accessibility, and subtle motion for clarity.
+        </p>
+        <p class="small-meta" style="margin-top:10px">Skills: HTML, CSS, JavaScript, Accessibility, Responsive Design, Performance Optimization.</p>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" aria-labelledby="contact-heading" style="margin-top:14px">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="card reveal" tabindex="0">
+        <p class="project-desc" style="margin:0">Email: <a href="mailto:hello@example.com" style="color:var(--accent)">hello@example.com</a></p>
+        <p class="small-meta" style="margin-top:8px">Or reach via any project links above. Open for freelance & collaboration.</p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="icon-btn" href="https://skshahid0786.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+          <a class="icon-btn" href="https://animeflarebox.linkpc.net/" target="_blank" rel="noopener noreferrer">AnimeFlareBox</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap" role="contentinfo">
+    <div class="contact">
+      © <span id="year"></span> SK Shahid — <span class="small-meta">Front-end Developer</span>
+      <div style="margin-top:6px"><a href="mailto:hello@example.com" style="color:var(--muted)" target="_blank" rel="noopener noreferrer">hello@example.com</a></div>
+    </div>
+    <div>
+      <a class="nav-link" href="#projects" data-scroll>Projects</a>
+      <a class="nav-link" href="#about" data-scroll>About</a>
+      <a class="nav-link" href="#contact" data-scroll>Contact</a>
+    </div>
+  </footer>
+          <script>
+// ---------------------- Theme Toggle ----------------------
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+const storedTheme = localStorage.getItem("theme");
+if (storedTheme) body.setAttribute("data-theme", storedTheme);
+
+toggleBtn.addEventListener("click", () => {
+  const currentTheme = body.getAttribute("data-theme") === "light" ? "dark" : "light";
+  body.setAttribute("data-theme", currentTheme);
+  localStorage.setItem("theme", currentTheme);
+});
+
+// ---------------------- Smooth Scroll ----------------------
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+// ---------------------- Resume Download ----------------------
+document.getElementById("download-resume").addEventListener("click", () => {
+  const resumeText = `
+SK Shahid
+Front-End Developer & UI/UX Designer
+
+Portfolio Projects:
+1. EcoFoliage - https://skshahid0786.github.io/ecofoliage/
+2. GalleryGaze - https://skshahid0786.github.io/GalleryGaze/
+3. Aiko – Your Virtual Pet - https://skshahid0786.github.io/Aiko---Your-Virtual-Pet/
+4. VexoraAI - http://www.vexoraai.run.place/
+5. SoulConnect - https://soulconnect.linkpc.net/
+6. AnimeFlareBox - https://animeflarebox.linkpc.net/
+7. Chatter - https://skshahid0786.github.io/Chatter/
+8. Sanket Study Centre - https://skshahid0786.github.io/SanketStudyCentre/
+
+Contact: skshahid@example.com
+`;
+  const blob = new Blob([resumeText], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "SK_Shahid_Resume.txt";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ---------------------- Lazy Load for Images ----------------------
+const lazyImages = document.querySelectorAll("img[data-src]");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      observer.unobserve(img);
+    }
+  });
+});
+lazyImages.forEach(img => observer.observe(img));
+
+// ---------------------- Fade Animation on Scroll ----------------------
+const faders = document.querySelectorAll(".fade-in");
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// ---------------------- Keyboard Navigation ----------------------
+document.querySelectorAll("a, button").forEach(el => {
+  el.addEventListener("focus", () => el.classList.add("focus-visible"));
+  el.addEventListener("blur", () => el.classList.remove("focus-visible"));
+});
+</script>
+
